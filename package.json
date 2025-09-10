@@ -1,0 +1,48 @@
+{
+  "name": "framerclone-complete",
+  "version": "1.0.0",
+  "description": "Clone complet de Framer - Créateur de sites web no-code français avec IA intégrée",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "build": "echo 'Prêt pour déploiement'",
+    "deploy": "vercel --prod",
+    "dev": "npx serve . --single"
+  },
+  "keywords": [
+    "no-code",
+    "website-builder", 
+    "framer-clone",
+    "drag-and-drop",
+    "ai-website",
+    "french",
+    "saas",
+    "visual-editor",
+    "responsive-design"
+  ],
+  "author": {
+    "name": "FramerClone",
+    "email": "contact@framerclone.fr",
+    "url": "https://framerclone.fr"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/username/framerclone.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/framerclone/issues"
+  },
+  "homepage": "https://github.com/username/framerclone#readme",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

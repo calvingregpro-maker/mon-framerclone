@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FramerClone - Créateur de sites web no-code</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h2>🎨 FramerClone</h2>
+                </div>
+                <nav class="nav">
+                    <a href="#" class="nav-link active" data-page="dashboard">Dashboard</a>
+                    <a href="#" class="nav-link" data-page="editor">Éditeur</a>
+                    <a href="#" class="nav-link" data-page="templates">Templates</a>
+                    <a href="#" class="nav-link" data-page="ai">IA</a>
+                    <a href="#" class="nav-link" data-page="pricing">Abonnement</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="btn btn--outline btn--sm theme-toggle">
+                        <i data-lucide="moon"></i>
+                    </button>
+                    <button class="btn btn--primary btn--sm" data-modal="auth">Connexion</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Landing Page -->
+        <section id="landing" class="page">
+            <div class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Créez des sites web magnifiques sans code</h1>
+                        <p class="hero-description">L'outil no-code le plus puissant de France. Drag & drop, IA intégrée, templates professionnels.</p>
+                        <div class="hero-actions">
+                            <button class="btn btn--primary btn--lg" data-page="dashboard">Commencer gratuitement</button>
+                            <button class="btn btn--outline btn--lg" data-page="templates">Voir les templates</button>
+                        </div>
+                        <div class="hero-features">
+                            <div class="feature">
+                                <i data-lucide="zap"></i>
+                                <span>Déploiement en 1 clic</span>
+                            </div>
+                            <div class="feature">
+                                <i data-lucide="brain"></i>
+                                <span>IA intégrée</span>
+                            </div>
+                            <div class="feature">
+                                <i data-lucide="smartphone"></i>
+                                <span>100% responsive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="page active">
+            <div class="container">
+                <div class="dashboard-header">
+                    <h1>Dashboard</h1>
+                    <button class="btn btn--primary" data-page="editor">
+                        <i data-lucide="plus"></i>
+                        Nouveau projet
+                    </button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>15,420</h3>
+                        <p>Vues totales</p>
+                        <span class="trend positive">+12%</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>3,421</h3>
+                        <p>Ce mois</p>
+                        <span class="trend positive">+8%</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>34%</h3>
+                        <p>Taux de rebond</p>
+                        <span class="trend negative">-5%</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>2m 34s</h3>
+                        <p>Temps moyen</p>
+                        <span class="trend positive">+15%</span>
+                    </div>
+                </div>
+
+                <div class="dashboard-content">
+                    <div class="chart-section">
+                        <h2>Analytics</h2>
+                        <canvas id="analyticsChart"></canvas>
+                    </div>
+
+                    <div class="projects-section">
+                        <h2>Mes Projets</h2>
+                        <div class="projects-grid" id="projectsGrid">
+                            <!-- Projects will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Editor -->
+        <section id="editor" class="page">
+            <div class="editor-layout">
+                <div class="editor-sidebar">
+                    <h3>Éléments</h3>
+                    <div class="elements-palette" id="elementsPalette">
+                        <!-- Elements will be loaded here -->
+                    </div>
+
+                    <h3>Propriétés</h3>
+                    <div class="properties-panel" id="propertiesPanel">
+                        <p>Sélectionnez un élément</p>
+                    </div>
+                </div>
+
+                <div class="editor-main">
+                    <div class="editor-toolbar">
+                        <div class="toolbar-left">
+                            <button class="btn btn--sm" id="undoBtn">
+                                <i data-lucide="undo"></i>
+                            </button>
+                            <button class="btn btn--sm" id="redoBtn">
+                                <i data-lucide="redo"></i>
+                            </button>
+                        </div>
+                        <div class="toolbar-center">
+                            <button class="btn btn--sm device-btn active" data-device="desktop">
+                                <i data-lucide="monitor"></i>
+                            </button>
+                            <button class="btn btn--sm device-btn" data-device="tablet">
+                                <i data-lucide="tablet"></i>
+                            </button>
+                            <button class="btn btn--sm device-btn" data-device="mobile">
+                                <i data-lucide="smartphone"></i>
+                            </button>
+                        </div>
+                        <div class="toolbar-right">
+                            <button class="btn btn--sm" id="previewBtn">
+                                <i data-lucide="eye"></i>
+                                Aperçu
+                            </button>
+                            <button class="btn btn--primary btn--sm" id="publishBtn">
+                                <i data-lucide="globe"></i>
+                                Publier
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="editor-canvas-container">
+                        <div class="editor-canvas" id="editorCanvas">
+                            <div class="canvas-placeholder">
+                                <i data-lucide="mouse-pointer"></i>
+                                <h3>Glissez des éléments ici</h3>
+                                <p>Commencez par glisser un élément depuis la palette</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Templates -->
+        <section id="templates" class="page">
+            <div class="container">
+                <div class="templates-header">
+                    <h1>Templates Professionnels</h1>
+                    <div class="template-filters">
+                        <button class="filter-btn active" data-category="all">Tous</button>
+                        <button class="filter-btn" data-category="Portfolio">Portfolio</button>
+                        <button class="filter-btn" data-category="Business">Business</button>
+                        <button class="filter-btn" data-category="E-commerce">E-commerce</button>
+                        <button class="filter-btn" data-category="Blog">Blog</button>
+                    </div>
+                </div>
+
+                <div class="templates-grid" id="templatesGrid">
+                    <!-- Templates will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Generator -->
+        <section id="ai" class="page">
+            <div class="container">
+                <div class="ai-header">
+                    <h1>🤖 Générateur IA</h1>
+                    <p>Décrivez votre site et laissez l'IA le créer pour vous</p>
+                </div>
+
+                <div class="ai-interface">
+                    <div class="ai-chat" id="aiChat">
+                        <div class="ai-message">
+                            <div class="ai-avatar">🤖</div>
+                            <div class="message-content">
+                                <p>Bonjour ! Je suis votre assistant IA. Décrivez-moi le site web que vous souhaitez créer et je vous aiderai à le construire.</p>
+                                <div class="ai-suggestions">
+                                    <button class="suggestion-btn">Créer un site pour mon restaurant</button>
+                                    <button class="suggestion-btn">Portfolio de photographe</button>
+                                    <button class="suggestion-btn">Landing page pour app mobile</button>
+                                    <button class="suggestion-btn">Site e-commerce mode</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ai-input-container">
+                        <input type="text" id="aiInput" placeholder="Décrivez votre site web..." class="ai-input">
+                        <button class="btn btn--primary" id="aiSendBtn">
+                            <i data-lucide="send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="pricing" class="page">
+            <div class="container">
+                <div class="pricing-header">
+                    <h1>Choisissez votre plan</h1>
+                    <p>Commencez gratuitement et évoluez selon vos besoins</p>
+                </div>
+
+                <div class="pricing-grid" id="pricingGrid">
+                    <!-- Pricing plans will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Connexion</h2>
+                <button class="modal-close" data-modal-close="authModal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="auth-form">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mot de passe</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full">Se connecter</button>
+                </form>
+                <p class="auth-switch">
+                    Pas de compte ? <a href="#" class="auth-toggle">Créer un compte</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Notifications -->
+    <div class="notifications-container" id="notifications"></div>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
